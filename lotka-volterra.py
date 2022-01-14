@@ -20,7 +20,15 @@ import argparse
 
 
 def main(args):
-    pass
+    #retrieve model parameters
+    alpha = args.alpha
+    beta = args.beta
+    gamma = args.gamma
+    delta = args.delta
+
+    print('Model Parameters => alpha = {}, beta = {}, gamma = {}, delta = {}'.\
+                                            format(alpha, beta, gamma, delta))
+    
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='simulation of the Lotka-Volterra model in a 2D phase space')
