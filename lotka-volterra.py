@@ -4,7 +4,19 @@ import scipy
 import pylab 
 import argparse
 
+""""
+    This is the simulation of the predator-prey model (Lotka-Volterra) in a 2D phase 
+    space. We follow the notational convention that can be found on this wikipedia
+    page: https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations
 
+    As shown on Wikipedia, we consider two first-order Ordinary Differential Equations
+    given by:
+        - dx/dt = \alpha * x - \beta * xy
+        - dy/dt = \delta * xy - \gamma * y
+
+    where \alpha, \beta, \delta and \gamma are the parameters describing the interaction
+    of the two species x (rabbits) and y (wolves). 
+"""
 
 
 def main(args):
