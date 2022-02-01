@@ -61,9 +61,9 @@ def main(args):
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='simulation of the van der Pol Model')
-    parser.add_argument('--mu', type=list, default=[0,1,2,3,4,5,6],
+    parser.add_argument('--mu', type=list, default=[-1, 0,1,2,3,4,5,6],
         help='mu parameter, which indicates the nonlinearity and strength of damping')
         
-    parser.add_argument('--init', type=list, default=[1, 1],
+    parser.add_argument('--init', type=list, default=[1, 0],
                     help='initial condition for the IVP')
     main(parser.parse_args())
