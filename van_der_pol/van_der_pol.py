@@ -1,4 +1,3 @@
-
 from pydoc import Helper
 import numpy as np
 import pandas as pd
@@ -15,9 +14,7 @@ plt.rcParams["figure.figsize"] = (10,10)
 """
 This is a simulation of Van der Pol's equation given by
     d^2x/dt^2 - mu(1-x^2)dx/dt + x = 0
-
 author=Blaise Munyampirwa
-
 """
 
 
