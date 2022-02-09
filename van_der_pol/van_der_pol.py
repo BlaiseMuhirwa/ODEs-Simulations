@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import warnings
 
 warnings.filterwarnings('ignore')
-plt.rcParams["figure.figsize"] = (15,15)
+plt.rcParams["figure.figsize"] = (10,10)
 
 
 """
@@ -48,8 +48,7 @@ def main(args):
                             initial_condition[1]], t_eval=time)
         plt.plot(ode_solution.y[0], ode_solution.y[1], '-')
 
-
-    plt.xlim([-3,3])
+    plt.xlim([-6,6])
     plt.xlabel('X')
     plt.ylabel('dXdt')
     plt.title('Van der Pol Oscillator Simulation ')
@@ -64,6 +63,6 @@ if __name__=='__main__':
     parser.add_argument('--mu', type=list, default=[-1, 0,1,2,3,4,5,6],
         help='mu parameter, which indicates the nonlinearity and strength of damping')
         
-    parser.add_argument('--init', type=list, default=[1, 0],
+    parser.add_argument('--init', type=list, default=[0,0],
                     help='initial condition for the IVP')
     main(parser.parse_args())

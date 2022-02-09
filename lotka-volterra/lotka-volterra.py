@@ -41,7 +41,7 @@ def plot_phase_curve(callable, alpha, beta, gamma, delta, time):
     growth_rate_x, growth_rate_y = callable([grid_x, grid_y])
 
     """ plotting the phase curve"""
-    pylab.title('Trajectories and direction fields')
+    pylab.title('Phase Curve')
     pylab.quiver(
         grid_x, grid_y, growth_rate_x, growth_rate_y, pivot='mid'
         )
