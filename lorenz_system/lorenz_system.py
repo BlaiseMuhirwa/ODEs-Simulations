@@ -18,7 +18,7 @@ def main(args):
     initial, stop = 0.0, 40.0
 
     initial_values = [
-        [8.0, 1.0, 1.0], [80.0, 10.0, 10.0], [800.0, 100.0, 100.0]
+        [0.1, 0.1, 0.1]
     ]
 
     def lorenz_ode(time, array):
