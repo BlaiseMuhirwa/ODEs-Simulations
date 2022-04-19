@@ -1,0 +1,47 @@
+Author: Blaise Munyampirwa
+CMSC 23500, Winter 2022
+
+
+1. SOLUTION DESCRIPTION
+
+In order to optimize the performance of the database, I first identified the main performance
+bottlenecks. In particular, the following features were considered:
+
+A) Join Re-ordering: 
+    Previously, in milestone QO, Hash Join operations worked by constructing
+    a hash table using the left relation and probing using the right relation. This, however,
+    need not be optimal. In fact, constructing a hash table on the left relation when this 
+    relation is orders of magnitude larger than the right relation incurs a significant 
+    performance overhead. 
+    As a solution, I implemented join re-ordering. Instead of building the hash table on the 
+    left relation, we first determine which relation has the smaller size. Then, the hash table
+    is constructed using tuples from this relation, and the other relation is used for probing. 
+    After implementing join re-ordering, we observed significant performance improvements. 
+
+B) Nested-Loop Join and Hash Equi-Join:
+    A second point of optimization concerns the type of join primitive used. Since hash equi-joins
+    generally perform better than nested-loop joins especially when the data is sufficiently large,
+    we introduced another optimization construct by almost always using hash equi-joins except in
+    a few scenarios illustrated below. This was accomplished by changing the physical plan that the
+    executor engine utilizes such that it almost always uses hash joins. Having implemented both 
+    join re-ordering and this second optimization, the runtime for join_right, join_left, and 
+    join_large was significantly better than the benchmarks. 
+
+C) When to Choose Nested-Loop Join?
+    As mentioned above, in the majority of cases, this implementation uses hash joins. However, 
+    in situations where the data is sufficiently small that using a hash join may incur a significant
+    performance overhead, we utilize a nested-loop join. To determine what "sufficiently small" means, 
+    we pick a cut-off for the size of the left and right relation. In particular, whenever the cardinalities
+    of the left relation and the right relation are less than or equal to 30, we pick a nested-loop join. 
+    This cutoff was picked simply by considering the test cases and the given benchmarks. One can 
+    imagine where the process of choosing this cutoff can be made rigorous by comparing numerically 
+    the performance obtained by using a hash join versus a nested-loop join on data of different sizes. 
+    The point at which a nested-loop join starts to outperform a hash join would be the desired 
+    cutoff. 
+
+2. TIME SPENT ON THE MILESTONE & OTHER FEEDBACK
+    I spent roughly 10 hours on this milestone. To beat the benchmarks for join_right, join_left, and 
+    join_large took me about 1 hour. However, getting to a point where I can reduce the runtime for join_tiny
+    took more time since I had to change a significant piece of my page implementation. What I liked
+    most about this milestone is that it pushed us to think more about performance engineering, which 
+    is such an important aspect of database systems. 

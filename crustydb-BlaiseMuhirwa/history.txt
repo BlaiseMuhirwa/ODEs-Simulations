@@ -1,0 +1,33 @@
+#V2
+\\r testdb
+\\c testdb
+create table test (a INT, b INT, primary key (a));
+\\i <PATH>/data.csv test
+echo $PATH
+\\q
+echo $PATH
+\\r testdb
+\\c testdb
+CREATE TABLE test (a INT, b String, primary key (a));
+CREATE TABLE test (a INT, b STRING, primary key (a));
+CREATE TABLE t (a INT, b STRING, primary key (a));
+CREATE TABLE a (c INT, d STRING, primary key (c));
+CREATE TABLE a (c INT, d INT, primary key (c));
+CREATE TABLE aAAA (c INT, d INT, primary key (c));
+CREATE TABLE bbbBB (c INT, d STRING, primary key (c));
+create table  bbbBB (c int, d int, primary key (c));
+create table  bbdB (c int, d int, primary key (c));
+create table  beeeeebdB (c int, d string, primary key (c));
+create table  beeeebdB (c int, d timestamp, primary key (c));
+create table ttet (c int, d String, primary key(c));
+create table tteteew (c int, d char, primary key(c));
+q
+quit
+create table oioioiioi(a int, b timestamp, primary key (a));
+\\c testdb
+\\r testdb
+\\d testdb
+create table oioioiioi(a int, b timestamp, primary key (a));
+\\c testdb
+create table oioioiioi(a int, b timestamp, primary key (a));
+create table oioioioi(a INT, b INT, primary key (a));
